@@ -6,7 +6,7 @@
 #    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/10 12:32:44 by tcoeffet         ###   ########.fr        #
+#    Updated: 2025/01/10 17:40:13 by tcoeffet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ SOURCES = 	$(LIBFT)\
 			push_swap_op_2.c\
 			push_swap_sort_1.c\
 			push_swap_sort_2.c\
+			push_swap_targets.c\
 			error_check.c\
 			error_check_utils.c\
-			
 			
 OBJ = 		$(SOURCES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:27:38 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 16:23:49 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:29:11 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_sort(t_stack *st)
 {
 	while (st->next != NULL)
 	{
-		if (st->next->content < st->content)
+		if (st->next->content[0] < st->content[0])
 			return (0);
 		st = st->next;
 	}
@@ -53,7 +53,7 @@ void	ft_clear_split(char **split)
 
 void	print_data(t_data *data)
 {
-	ft_printf("cheap = %d\n", data->cheap);
+	ft_printf("target = %d\n", data->target_a);
 	ft_printf("count = %d\n", data->count);
 	ft_printf("max = %p\n", data->max);
 	ft_printf("temp = %p\n", data->temp);

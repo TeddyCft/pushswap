@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:45:17 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 17:04:47 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:35:29 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,27 @@ void	sort_stacks(t_stack **st_a, t_stack **st_b)
 	op_push(st_a, st_b, 'b');
 	if (!(stack_size(*st_a) == 3))
 		op_push(st_a, st_b, 'b');
-	print_stacks(*st_a, *st_b);
-	ft_printf("/\\ push init /\\ \n----------\n\n");
+	// print_stacks(*st_a, *st_b);
+	// ft_printf("/\\ push init /\\ \n----------\n\n");
 	while (stack_size(*st_a) > 2)
 	{
+		get_all_targets(*st_a, *st_b, 'a');
 		get_cheap(data, *st_a, *st_b);
 		push_cheap(data, st_a, st_b);
-		print_stacks(*st_a, *st_b);
-		ft_printf("/\\ push cheap /\\ \n----------\n\n");
+		// print_stacks(*st_a, *st_b);
+		// ft_printf("/\\ push cheap /\\ \n----------\n\n");
 	}
 	sort_three(st_a);
-	print_stacks(*st_a, *st_b);
-	ft_printf("/\\ sort three /\\ \n----------\n\n");
+	// print_stacks(*st_a, *st_b);
+	// ft_printf("/\\ sort three /\\ \n----------\n\n");
 	push_b_to_a(st_a, st_b);
-	print_stacks(*st_a, *st_b);
-	ft_printf("/\\ push b to a /\\ \n----------\n\n");
-/* 	while (!(is_sort(*st_a)))
+	// print_stacks(*st_a, *st_b);
+	// ft_printf("/\\ push b to a /\\ \n----------\n\n");
+	while (!(is_sort(*st_a)))
 	{
-		print_stacks(*st_a, *st_b);
+		//print_stacks(*st_a, *st_b);
 		op_rot(st_a, 'a');
-	} */
+	}
 	return ;
 	free(data);
 }
@@ -80,7 +81,7 @@ int	main(int argc, char **argv)
 	if (error == 1)
 		return (ft_lstclear_ps(&st_a, &free), ft_printf("Error\n"), 0);
 	sort_stacks(&st_a, &st_b);
-	print_stacks(st_a, st_b);
+	//print_stacks(st_a, st_b);
 	return (ft_lstclear_ps(&st_a, &free), ft_lstclear_ps(&st_b, &free), 0);
 }
 

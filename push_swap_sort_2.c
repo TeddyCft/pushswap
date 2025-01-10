@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 17:24:30 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:00:37 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,16 @@ int	small_sort(t_stack **st)
 	return (1);
 }
 
-int	rot_count(t_data *data, int content, t_stack *st)
+int	rot_count(t_stack *st_a, t_stack *st_b)
 {
-	int		i;
-	t_stack	*found;
-	t_stack	*start;
+	int	i;
 
-	start = st;
-	found = 0;
 	i = 0;
-	while ((st)->content[0] > content && st)
+	while (st_b != st_a->target)
 	{
-		if ((st)->content[0] > content)
-			found = st;
-		st = (st)->next;
 		i++;
+		st_b = st_b->next;
 	}
-	if (!found)
-	{
-		st = start;
-		i = rot_to_max(st, &found);
-	}
-	data->temp = found;
 	return (i);
 }
 
@@ -70,19 +58,15 @@ the cheapest element to push */
 void	get_cheap(t_data *data, t_stack *st_a, t_stack *st_b)
 {
 	int	i;
-	int	count;
 
 	i = 0;
 	while ((st_a)->next != NULL)
 	{
-		count = i + 1 + rot_count(data, (st_a)->content[0], st_b);
-		if (count < data->count || data->count == 0)
-		{
-			data->cheap = st_a;
-			data->count = count;
-			data->topush = data->temp;
-		}
-		i++;
+		st_a->count = i + 1 + rot_count(st_a, st_b);
+		if (!data->target_a)
+			data->target_a = st_a;
+		if (st_a->count < data->target_a->count)
+			data->target_a = st_a;
 		st_a = (st_a)->next;
 	}
 }
@@ -91,17 +75,15 @@ void	get_cheap(t_data *data, t_stack *st_a, t_stack *st_b)
 amount of operations */
 void	push_cheap(t_data *data, t_stack **st_a, t_stack **st_b)
 {
-	while (*st_a != data->cheap && *st_b != data->topush)
+	while (*st_a != data->target_a && *st_b != data->target_a->target)
 	{
 		op_rr(st_a, st_b);
 	}
-	while (*st_a != data->cheap)
+	while (*st_a != data->target_a)
 		op_rot(st_a, 'a');
-	while (*st_b != data->topush)
+	while (*st_b != data->target_a->target)
 		op_rot(st_b, 'b');
 	op_push(st_a, st_b, 'b');
-	data->cheap = 0;
-	data->temp = 0;
-	data->count = 0;
-	data->topush = 0;
+	reset_targets(*st_a);
+	data->target_a = 0;
 }

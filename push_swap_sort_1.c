@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:13:07 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 15:28:01 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:05:16 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	push_b_to_a(t_stack **st_a, t_stack **st_b)
 {
 	while (*st_b)
 	{
-		while (!is_max(*st_a) && (*st_b)->content < (*st_a)->content)
+		get_all_targets(*st_b, *st_a, 'b');
+		while (*st_a != (*st_b)->target)
 		{
 			op_rot(st_a, 'a');
 		}

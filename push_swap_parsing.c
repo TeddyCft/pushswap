@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 17:22:24 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:53:51 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	init_struct(int argc, char **list, t_stack **st_a)
 		*content = ft_atoi(list[i]);
 		new = ft_lstnew_ps(content);
 		new->target = new;
+		new->count = 0;
 		ft_lstadd_back_ps(st_a, new);
 		i++;
 	}
