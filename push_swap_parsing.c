@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 18:53:51 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:55:04 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int	init_struct(int argc, char **list, t_stack **st_a)
 {
 	t_stack	*new;
+	t_stack	*prev;
 	int		*content;
 	int		i;
 
+	prev = 0;
 	i = 0;
 	while (list[i] && (i < argc || argc == 2))
 	{
@@ -29,9 +31,9 @@ int	init_struct(int argc, char **list, t_stack **st_a)
 		}
 		*content = ft_atoi(list[i]);
 		new = ft_lstnew_ps(content);
-		new->target = new;
-		new->count = 0;
+		new->prev = prev;
 		ft_lstadd_back_ps(st_a, new);
+		prev = new;
 		i++;
 	}
 	return (1);
@@ -69,11 +71,32 @@ void	print_stacks(t_stack *st_a, t_stack *st_b)
 
 void	print_stack(t_stack *st, char c)
 {
-	ft_printf("--STACK-[%c]--\n", c - 32);
+	ft_printf("---STACK-[%c]---\n", c - 32);
+	while (st)
+	{
+		ft_printf("%d, tar = %d is_rev = %d count = %d\n", st->content[0] \
+		, st->target->content[0], st->is_rev, st->count);
+		st = st->next;
+	}
+	ft_printf("---------------\n");
+}
+
+void	rev_print_stacks(t_stack *st_a, t_stack *st_b)
+{
+	ft_printf("\n");
+	rev_print_stack(st_a, 'a');
+	rev_print_stack(st_b, 'b');
+	ft_printf("\n");
+}
+
+void	rev_print_stack(t_stack *st, char c)
+{
+	st = ft_lstlast_ps(st);
+	ft_printf("--rSTACK-[%c]---\n", c - 32);
 	while (st)
 	{
 		ft_printf("%d\n", *(int *)st->content);
-		st = st->next;
+		st = st->prev;
 	}
 	ft_printf("---------------\n");
 }

@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 20:02:03 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:37:15 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 typedef struct s_stack
 {
 	int				*content;
+	int				is_rev;
 	int				count;
 	struct s_stack	*target;
+	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -27,8 +29,7 @@ typedef struct data
 {
 	int		count;
 	t_stack	*temp;
-	t_stack	*topush;
-	t_stack	*target_a;
+	t_stack	*cheap;
 	t_stack	*max;
 	t_stack	*min;
 }					t_data;
@@ -92,8 +93,7 @@ t_stack	*get_min(t_stack *st);
 //sort_2
 
 void	push_cheap(t_data *data, t_stack **st_a, t_stack **st_b);
-void	get_cheap(t_data *data, t_stack *st_a, t_stack *st_b);
-int		rot_count(t_stack *st_a, t_stack *st_b);
+void	get_cheap(t_data *data, t_stack *st_a);
 int		small_sort(t_stack **st);
 
 //targets
@@ -104,11 +104,16 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c);
 //utils
 
 void	ft_clear_split(char **split);
+int		absol(int val);
 int		is_sort(t_stack *st);
 int		is_max(t_stack *st);
+int		ft_min(int a, int b);
+void	reset_stack(t_stack *st);
 
 //testing
 
+void	rev_print_stacks(t_stack *st_a, t_stack *st_b);
+void	rev_print_stack(t_stack *st, char c);
 void	print_stacks(t_stack *st_a, t_stack *st_b);
 void	print_stack(t_stack *st, char c);
 void	print_data(t_data *data);

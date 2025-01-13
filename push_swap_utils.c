@@ -6,11 +6,34 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:27:38 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 20:29:11 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:36:01 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	reset_stack(t_stack *st)
+{
+	while (st)
+	{
+		st->is_rev = 0;
+		st = st->next;
+	}
+}
+
+int	ft_min(int a, int b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+int	absol(int val)
+{
+	if (val < 0)
+		val = -val;
+	return (val);
+}
 
 int	is_sort(t_stack *st)
 {
@@ -53,9 +76,8 @@ void	ft_clear_split(char **split)
 
 void	print_data(t_data *data)
 {
-	ft_printf("target = %d\n", data->target_a);
+	ft_printf("cheap = %d\n", data->cheap);
 	ft_printf("count = %d\n", data->count);
 	ft_printf("max = %p\n", data->max);
 	ft_printf("temp = %p\n", data->temp);
-	ft_printf("topush = %p\n----------\n", data->topush);
 }

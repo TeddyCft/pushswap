@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:38:09 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 20:33:10 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:21:48 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,32 @@ void	reset_targets(t_stack *st)
 		st = st->next;
 	}
 }
+
+int	get_count(t_stack *st, t_stack *target, int i)
+{
+	t_stack	*end;
+	int		j;
+	int		k;
+
+	j = 0;
+	k = 0;
+	end = ft_lstlast_ps(st);
+	while (st != target)
+	{
+		j++;
+		st = st->next;
+	}
+	while (end != target)
+	{
+		k--;
+		end = end->prev;
+	}
+	ft_printf("target = %d k = %d j = %d\n", target->content[0], k, j);
+	if (j + i + 1 < absol(k - i - 1))
+		return (j + i + 1);
+	return (k - i - 1);
+}
+
 t_stack	*get_target_a(t_stack *st_a, t_stack *st_b)
 {
 	int		a;
@@ -69,17 +95,23 @@ t_stack	*get_target_b(t_stack *st_b, t_stack *st_a)
 */
 void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 {
-	int i = 0;
+	int	i;
+	int	half;
+
+	half = stack_size(st1) / 2;
+	i = 0;
 	while (st1)
 	{
-		i = st1->content[0];
 		if (c == 'a')
-			st1->target = get_target_a(st1, st2);
+				st1->target = get_target_a(st1, st2);
 		else
-		{
-			st1->target = get_target_b(st1, st2);
-			//ft_printf("stb = %d, target = %d\n", st1->content[0], st1->target->content[0]);
-		}
+				st1->target = get_target_b(st1, st2);
+		i++;
+		if (i == half)
+			i = -i;
+		if (i < 0)
+			st1->is_rev = 1;
+		st1->count = get_count(st2, st1->target, absol(i));
 		st1 = st1->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:40:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/06 14:49:47 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:45:14 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ t_stack	*ft_lstnew_ps(int *content)
 	if (!(new))
 		return (0);
 	new->content = content;
+	new->target = new;
+	new->count = 0;
+	new->is_rev = 0;
 	new->next = NULL;
 	return (new);
 }

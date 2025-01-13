@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:32:27 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 13:10:11 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:36:30 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	op_rot(t_stack **st, char c)
 		return (0);
 	tmp = *st;
 	*st = (*st)->next;
+	(*st)->prev = NULL;
+	tmp->prev = ft_lstlast_ps(*st);
 	ft_lstlast_ps(*st)->next = tmp;
 	tmp->next = NULL;
 	if (c != 'x')
@@ -59,6 +61,8 @@ int	op_rev_rot(t_stack **st, char c)
 	*st = ft_lstlast_ps(*st);
 	find_new_last(tmp, *st)->next = NULL;
 	(*st)->next = tmp;
+	tmp->prev = *st;
+	(*st)->prev = NULL;
 	if (c != 'x')
 		ft_printf("rr%c\n", c);
 	return (1);

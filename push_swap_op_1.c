@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:15:57 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/09 13:35:59 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:39:50 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,18 @@ int	op_ss(t_stack *st_a, t_stack *st_b)
 /* push : puts the first element of stack 'from' on top of stack 'to'*/
 int	op_push(t_stack **from, t_stack **to, char c)
 {
- 	t_stack	*tmp;
+	t_stack	*tmp;
 
 	if (!(*from))
 		return (0);
 	tmp = (*from)->next;
 	(*from)->next = *to;
+	if (*to)
+		(*to)->prev = *from;
 	*to = *from;
 	*from = tmp;
+	if (*from)
+		(*from)->prev = NULL;
 	ft_printf("p%c\n", c);
 	return (1);
 }
