@@ -6,12 +6,13 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:38:09 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 19:21:48 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:53:57 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//set the targets registered in stack st to 0
 void	reset_targets(t_stack *st)
 {
 	while (st)
@@ -21,6 +22,8 @@ void	reset_targets(t_stack *st)
 	}
 }
 
+/*count the smallest number of actions needed to reach the target from the node
+*st in stack st. returns a negative value if the actions should be reverted*/
 int	get_count(t_stack *st, t_stack *target, int i)
 {
 	t_stack	*end;
@@ -28,7 +31,7 @@ int	get_count(t_stack *st, t_stack *target, int i)
 	int		k;
 
 	j = 0;
-	k = 0;
+	k = -1;
 	end = ft_lstlast_ps(st);
 	while (st != target)
 	{
@@ -40,12 +43,14 @@ int	get_count(t_stack *st, t_stack *target, int i)
 		k--;
 		end = end->prev;
 	}
-	ft_printf("target = %d k = %d j = %d\n", target->content[0], k, j);
-	if (j + i + 1 < absol(k - i - 1))
+	// ft_printf("%d target = %d k = %d j = %d\n",st->content[0], target->content[0], k, j);
+	if (j < absol(k))
 		return (j + i + 1);
 	return (k - i - 1);
 }
 
+/*checks the whole stack b for the most convenient node to target 
+from the first node of st_a*/
 t_stack	*get_target_a(t_stack *st_a, t_stack *st_b)
 {
 	int		a;
@@ -68,6 +73,8 @@ t_stack	*get_target_a(t_stack *st_a, t_stack *st_b)
 	return (found);
 }
 
+/*checks the whole stack a for the most convenient node to target 
+from the first node of st_b*/
 t_stack	*get_target_b(t_stack *st_b, t_stack *st_a)
 {
 	int		b;
@@ -97,21 +104,23 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 {
 	int	i;
 	int	half;
+	int test;
 
 	half = stack_size(st1) / 2;
 	i = 0;
 	while (st1)
 	{
+		test = st1->content[0];
 		if (c == 'a')
 				st1->target = get_target_a(st1, st2);
 		else
 				st1->target = get_target_b(st1, st2);
-		i++;
-		if (i == half)
-			i = -i;
 		if (i < 0)
 			st1->is_rev = 1;
 		st1->count = get_count(st2, st1->target, absol(i));
 		st1 = st1->next;
+		i++;
+		if (i == half)
+			i = -1 - i;
 	}
 }

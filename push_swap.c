@@ -6,15 +6,21 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:45:17 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 19:03:40 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/14 21:10:18 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+push 2 from st_a to st_b then sort every element of st_a on top of st_b by
+chosing the cheapest move to make until st_a size is 3. finaly pushes every
+elements of st_b to st_a making sure st_a's top element is right.
+*/
 void	sort_stacks(t_stack **st_a, t_stack **st_b)
 {
 	t_data	*data;
+	int		cheap;
 
 	data = malloc(sizeof (t_data));
 	if (!data)
@@ -24,28 +30,30 @@ void	sort_stacks(t_stack **st_a, t_stack **st_b)
 	op_push(st_a, st_b, 'b');
 	if (!(stack_size(*st_a) == 3))
 		op_push(st_a, st_b, 'b');
-	print_stacks(*st_a, *st_b);
-	ft_printf("/\\ push init /\\ \n----------\n\n");
-	while (stack_size(*st_a) > 2)
+	// print_stacks(*st_a, *st_b);
+	// ft_printf("/\\ push init /\\ \n----------\n\n");
+	while (stack_size(*st_a) > 3)
 	{
 		get_all_targets(*st_a, *st_b, 'a');
 		get_cheap(data, *st_a);
+		cheap = data->cheap->content[0]; /**/
+		// ft_printf("\n_________\ncheap = %d count = %d\n", *(int *)data->cheap->content, data->cheap->count);
+		// print_stacks(*st_a, *st_b);
+		// ft_printf("/\\ push cheap /\\ \n----------\n\n");
 		push_cheap(data, st_a, st_b);
-		ft_printf("$$$$$$cheap = %d\n", *(int *)data->cheap->content);
-		print_stacks(*st_a, *st_b);
-		ft_printf("/\\ push cheap /\\ \n----------\n\n");
 		reset_stack(*st_a);
 	}
 	sort_three(st_a);
-	printf("/\\ sort three /\\ \n----------\n\n");
+	// printf("/\\ sort three /\\ \n----------\n\n");
+	// print_stacks(*st_a, *st_b);
+	// ft_printf(" \n----------\n\\/ push b to a \\/\n\n");
 	push_b_to_a(st_a, st_b);
 	// print_stacks(*st_a, *st_b);
-	// ft_printf("/\\ push b to a /\\ \n----------\n\n");
 	while (!(is_sort(*st_a)))
 	{
-		// print_stacks(*st_a, *st_b);
 		op_rot(st_a, 'a');
 	}
+	// print_stacks(*st_a, *st_b);
 	return ;
 	free(data);
 }

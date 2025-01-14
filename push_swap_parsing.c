@@ -6,12 +6,13 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 18:55:04 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:43:25 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//create the stack a using the number list created by pars_init
 int	init_struct(int argc, char **list, t_stack **st_a)
 {
 	t_stack	*new;
@@ -39,6 +40,7 @@ int	init_struct(int argc, char **list, t_stack **st_a)
 	return (1);
 }
 
+//takes every argument and puts it into a double array, if argc == 2, uses split
 void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 {
 	char	**list;
@@ -60,7 +62,8 @@ void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 		ft_clear_split(list);
 	return ;
 }
-
+//////// TESTING /////////
+//testing function, prints both stacks
 void	print_stacks(t_stack *st_a, t_stack *st_b)
 {
 	ft_printf("\n");
@@ -69,6 +72,7 @@ void	print_stacks(t_stack *st_a, t_stack *st_b)
 	ft_printf("\n");
 }
 
+//testing function, prints the stack c
 void	print_stack(t_stack *st, char c)
 {
 	ft_printf("---STACK-[%c]---\n", c - 32);
@@ -81,6 +85,7 @@ void	print_stack(t_stack *st, char c)
 	ft_printf("---------------\n");
 }
 
+//testing function, prints both stacks in reverse order
 void	rev_print_stacks(t_stack *st_a, t_stack *st_b)
 {
 	ft_printf("\n");
@@ -89,6 +94,7 @@ void	rev_print_stacks(t_stack *st_a, t_stack *st_b)
 	ft_printf("\n");
 }
 
+//testing function, prints the stack c in reverse order
 void	rev_print_stack(t_stack *st, char c)
 {
 	st = ft_lstlast_ps(st);

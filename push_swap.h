@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 18:37:15 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:54:38 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		op_rot(t_stack **st, char c);
 int		op_rr(t_stack **st1, t_stack **st2);
 int		op_rev_rot(t_stack **st, char c);
 int		op_rrr(t_stack **st1, t_stack **st2);
+void	pre_roll(t_data *data, t_stack **st_a, t_stack **st_b, int is_top);
 
 //parsing
 

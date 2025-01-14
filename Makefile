@@ -6,7 +6,7 @@
 #    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/10 17:40:13 by tcoeffet         ###   ########.fr        #
+#    Updated: 2025/01/14 18:36:06 by tcoeffet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,13 @@ MAKE_LIB = 	make -C ./libft all
 
 TEST = 		a.out
 
-ARG = 1 3 9 7 8 4 5 2 6
+ARG = "28 16 12 25 21 18 19 2 3 24 1 6 27 7 29 30 15 14 8 4 10 17 5 23 22 13 9 11 20 26"
 
 all :		$(NAME)
 
 test :		$(TEST)
-				./a.out $(ARG)
-
+				./a.out $(ARG) > result.txt
+				
 $(TEST) : 	$(OBJ)
 	$(CC) $(FLAGS) -I$(HEADERS) -g $(OBJ) $(LIBFT)
 

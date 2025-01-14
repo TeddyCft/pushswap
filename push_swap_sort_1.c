@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:13:07 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 18:04:56 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/14 19:09:49 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,31 @@
 //sorts the three last elements of stack a
 void	sort_three(t_stack **st)
 {
-	int	top;
-	int	mid;
-	int	bot;
+	int		i;
+	t_stack	*min;
+	t_stack	*max;
+	t_stack	*start;
 
-	top = *(int *)(*st)->content;
-	mid = *(int *)(*st)->next->content;
-	bot = *(int *)(*st)->next->next->content;
-	if (top > mid && mid > bot)
+	start = *st;
+	min = *st;
+	max = *st;
+	i = 0;
+	(*st)->next->next->next = *st;
+	while (i < 3)
 	{
-		op_swap(st, 'a');
-		op_rev_rot(st, 'a');
+		if ((*st)->content[0] < min->content[0])
+			min = *st;
+		if ((*st)->content[0] > max->content[0])
+			max = *st;
+		*st = (*st)->next;
+		i++;
 	}
-	else if (mid > top && mid > bot && top < bot)
-	{
+	while (*st != max)
+		*st = (*st)->next;
+	if ((*st)->next != min || \
+		(((t_stack *)st) == max && ((t_stack *)st)->next->next == min))
 		op_swap(st, 'a');
-		op_rot(st, 'a');
-	}
-	else if (top > mid && mid < bot)
-		op_swap(st, 'a');
-	else if (top < mid && mid > bot)
-		op_rev_rot(st, 'a');
-	else if (top > mid && mid < bot)
-		op_rot(st, 'a');
+	start->next->next->next = NULL;
 }
 
 /* push all the element of stack b into stack a */
@@ -45,6 +47,7 @@ void	push_b_to_a(t_stack **st_a, t_stack **st_b)
 	while (*st_b)
 	{
 		get_all_targets(*st_b, *st_a, 'b');
+		// print_stacks(*st_a, *st_b);
 		if ((*st_b)->count > 0)
 		{
 			while (*st_a != (*st_b)->target)
@@ -63,12 +66,13 @@ void	push_b_to_a(t_stack **st_a, t_stack **st_b)
 	}
 }
 
+//count the number of elements in stack st
 int	stack_size(t_stack *st)
 {
 	int	i;
 
 	i = 0;
-	while (st->next != NULL)
+	while (st)
 	{
 		i++;
 		st = st->next;
@@ -76,6 +80,7 @@ int	stack_size(t_stack *st)
 	return (i);
 }
 
+//returns the adress of the biggest number in stack st
 t_stack	*get_max(t_stack *st)
 {
 	int		i;
@@ -83,7 +88,7 @@ t_stack	*get_max(t_stack *st)
 
 	start = st;
 	i = 0;
-	while (st->next)
+	while (st)
 	{
 		if (*(int *)st->content > i)
 			i = *(int *)st->content;
@@ -94,6 +99,7 @@ t_stack	*get_max(t_stack *st)
 	return (start);
 }
 
+//returns the adress of the smallest element in stack st
 t_stack	*get_min(t_stack *st)
 {
 	int		i;
@@ -101,7 +107,7 @@ t_stack	*get_min(t_stack *st)
 
 	start = st;
 	i = *(int *)st->content;
-	while (st->next)
+	while (st)
 	{
 		if (*(int *)st->content < i)
 			i = *(int *)st->content;
@@ -111,4 +117,3 @@ t_stack	*get_min(t_stack *st)
 		start = start->next;
 	return (start);
 }
-
