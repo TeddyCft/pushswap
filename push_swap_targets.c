@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:38:09 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 18:33:49 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 21:51:36 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,11 @@ int	get_count(t_stack *st, t_stack *target, int i)
 		k = ft_max((k - absol(i)), 0);
 		j = j + absol(i);
 	}
-	k = k + 1;
-	if (j < k)
-		return (j);
-	return (-k);
+	i = absol(i);
+	k = -k;
+	if (j < (absol(k)))
+		return (j + i + 1);
+	return (k - i - 1);
 	// ft_printf("%d target = %d k = %d j = %d\n",st->content[0], target->content[0], k, j);
 }
 
@@ -172,7 +173,7 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 			st1->target = get_target_a(st1, st2);
 		else
 			st1->target = get_target_b(st1, st2);
-		if (i < 0)
+		if (i <= 0)
 			st1->is_rev = 1;
 		st1->count = get_count(st2, st1->target, i);
 		st1 = st1->next;
@@ -180,7 +181,7 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 		if (i == half)
 		{
 			i = -i;
-			if (half % 2 != 0)
+			if (half % 2 == 0)
 				i--;
 		}
 	}
