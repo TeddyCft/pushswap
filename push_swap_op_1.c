@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_op_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:15:57 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 14:39:50 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:03:46 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@ int	op_swap(t_stack **st, char c)
 		ft_printf("s%c\n", c);
 	return (1);
 }
+
+/* int	op_swap(t_stack **st, char c)
+{
+	t_stack	*tmp;
+
+	tmp = (*st)->next;
+	(*st)->prev = (*st)->next;
+	(*st)->next->prev = NULL;
+	if ((*st)->next->next)
+		(*st)->next->next->prev = (*st);
+	(*st)->next = (*st)->next->next;
+	tmp->next = (*st);
+	(*st) = tmp;
+	if (c != 'x')
+		ft_printf("s%c\n", c);
+	return (1);
+} */
 
 /* swaps both stacks */
 int	op_ss(t_stack *st_a, t_stack *st_b)

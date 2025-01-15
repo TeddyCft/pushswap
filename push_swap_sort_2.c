@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_sort_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/14 20:57:12 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:37:10 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,40 +49,39 @@ void	get_cheap(t_data *data, t_stack *st_a)
 amount of operations */
 void	push_cheap(t_data *data, t_stack **st_a, t_stack **st_b)
 {
-	if (data->cheap->count > 0)
-	{
-		if (data->cheap->is_rev == 1)
-			pre_roll(data, st_a, st_b, 1);
-	}
-	else
-	{
-		if (data->cheap->is_rev == 0)
-			pre_roll(data, st_a, st_b, 0);
-	}
-	while (*st_a != data->cheap)
-	{
-		if (data->cheap->is_rev == 0)
-			op_rot(st_a, 'a');
-		else
-			op_rev_rot(st_a, 'a');
-	}
-	op_push(st_a, st_b, 'b');
-}
-
-void	pre_roll(t_data *data, t_stack **st_a, t_stack **st_b, int is_top)
-{
-	if (is_top)
+	if (data->cheap->count > 0 && !data->cheap->is_rev)
 	{
 		while (*st_a != data->cheap && *st_b != data->cheap->target)
 			op_rr(st_a, st_b);
-		while (*st_b != data->cheap->target)
-			op_rot(st_b, 'b');
 	}
-	else
+	if (data->cheap->count < 0 && data->cheap->is_rev)
 	{
 		while (*st_a != data->cheap && *st_b != data->cheap->target)
 			op_rrr(st_a, st_b);
-		while (*st_b != data->cheap->target)
+	}
+	roll_a(data, st_a);
+	roll_b(data, st_b);
+	op_push(st_a, st_b, 'b');
+}
+
+void	roll_a(t_data *data, t_stack **st_a)
+{
+	while (*st_a != data->cheap)
+	{
+		if (data->cheap->is_rev)
+			op_rev_rot(st_a, 'a');
+		else
+			op_rot(st_a, 'a');
+	}
+}
+
+void	roll_b(t_data *data, t_stack **st_b)
+{
+	while (*st_b != data->cheap->target)
+	{
+		if (data->cheap->count < 0)
 			op_rev_rot(st_b, 'b');
+		else
+			op_rot(st_b, 'b');
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_sort_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:13:07 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/14 19:09:49 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:27:30 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,26 @@ void	sort_three(t_stack **st)
 	t_stack	*max;
 	t_stack	*start;
 
+	if (is_sort(*st))
+		return ;
 	start = *st;
 	min = *st;
 	max = *st;
 	i = 0;
 	(*st)->next->next->next = *st;
-	while (i < 3)
+	while (i++ < 3)
 	{
 		if ((*st)->content[0] < min->content[0])
 			min = *st;
 		if ((*st)->content[0] > max->content[0])
 			max = *st;
 		*st = (*st)->next;
-		i++;
 	}
-	while (*st != max)
-		*st = (*st)->next;
-	if ((*st)->next != min || \
-		(((t_stack *)st) == max && ((t_stack *)st)->next->next == min))
-		op_swap(st, 'a');
+	*st = start;
 	start->next->next->next = NULL;
+	if (max->next != min || \
+		(start == max && start->next->next == min))
+		op_swap(st, 'a');
 }
 
 /* push all the element of stack b into stack a */

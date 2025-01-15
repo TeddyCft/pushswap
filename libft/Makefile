@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
+#    By: teddy <teddy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2024/12/13 16:12:31 by tcoeffet         ###   ########.fr        #
+#    Updated: 2025/01/15 00:08:39 by teddy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ OBJBONUS =	$(BONUS:.c=.o)
 
 HEADERS =	libft.h
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -Wno-unused-but-set-variable
 
 CC = cc
 

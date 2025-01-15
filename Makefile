@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
+#    By: teddy <teddy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/14 18:36:06 by tcoeffet         ###   ########.fr        #
+#    Updated: 2025/01/15 14:09:33 by teddy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ = 		$(SOURCES:.c=.o)
 
 HEADERS =	push_swap.h
 
-FLAGS = 	-Wall -Werror -Wextra
+FLAGS = 	-Wall -Werror -Wextra -Wno-unused-but-set-variable
 
 CC = 		cc
 
@@ -40,7 +40,7 @@ MAKE_LIB = 	make -C ./libft all
 
 TEST = 		a.out
 
-ARG = "28 16 12 25 21 18 19 2 3 24 1 6 27 7 29 30 15 14 8 4 10 17 5 23 22 13 9 11 20 26"
+ARG = "26 22 33 3 20 6 14 34 27 41 35 17 39 4 28 11 24 10 48 15 47 32 25 13 44 46 8 49 2 37 18 7 50 19 31 40 43 29 36 1 30 38 9 16 42 21 5 45 23 12"
 
 all :		$(NAME)
 
