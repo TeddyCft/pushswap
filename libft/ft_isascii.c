@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:24:59 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:34:13 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:18:00 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* checks whether c is a 7-bit unsigned char value that fits into the ASCII
 character set. */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:45:17 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 21:52:11 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 22:12:10 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	last_roll(t_stack **st)
 	while (*st != max && j++)
 		*st = (*st)->prev;
 	*st = start;
-	// ft_printf("j = %d i = %d", j, i);
 	while (!is_sort(*st))
 	{
 		if (j > i)
@@ -50,9 +49,6 @@ void	fill_b(t_data *data, t_stack **st_a, t_stack **st_b)
 	{
 		get_all_targets(*st_a, *st_b, 'a');
 		get_cheap(data, *st_a);
-		// ft_printf("\n_________\ncheap = %d count = %d\n", *(int *)data->cheap->content, data->cheap->count);
-		// print_stacks(*st_a, *st_b);
-		// ft_printf("/\\ push cheap /\\ \n----------\n\n");
 		push_cheap(data, st_a, st_b);
 		reset_stack(*st_a);
 	}
@@ -70,18 +66,10 @@ void	sort_stacks(t_stack **st_a, t_stack **st_b)
 	op_push(st_a, st_b, 'b');
 	if (!(stack_size(*st_a) == 3))
 		op_push(st_a, st_b, 'b');
-	// print_stacks(*st_a, *st_b);
-	// ft_printf("/\\ push init /\\ \n----------\n\n");
 	fill_b(data, st_a, st_b);
 	sort_three(st_a);
-	// printf("/\\ sort three /\\ \n----------\n\n");
-	// print_stacks(*st_a, *st_b);
-	// ft_printf(" \n----------\n\\/ push b to a \\/\n\n");
 	push_b_to_a(st_a, st_b);
-	// print_stacks(*st_a, *st_b);
 	last_roll(st_a);
-	// print_stacks(*st_a, *st_b);
-	return ;
 	free(data);
 }
 
@@ -117,7 +105,5 @@ int	main(int argc, char **argv)
 	if (error == 1)
 		return (ft_lstclear_ps(&st_a, &free), ft_printf("Error\n"), 0);
 	sort_stacks(&st_a, &st_b);
-	// print_stacks(st_a, st_b);
-	// rev_print_stacks(st_a, st_b);
 	return (ft_lstclear_ps(&st_a, &free), ft_lstclear_ps(&st_b, &free), 0);
 }

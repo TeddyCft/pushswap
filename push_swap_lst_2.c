@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_lst_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:46:42 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/10 13:14:39 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:15:30 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_stack	*ft_lstlast_ps(t_stack *lst)
 	if (!lst)
 		return (NULL);
 	while (temp->next)
-			temp = temp->next;
+		temp = temp->next;
 	return (temp);
 }
 

@@ -6,7 +6,7 @@
 #    By: teddy <teddy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/15 21:46:36 by teddy            ###   ########.fr        #
+#    Updated: 2025/01/15 22:20:23 by teddy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,10 @@ SOURCES = 	$(LIBFT)\
 			push_swap_lst_1.c\
 			push_swap_lst_2.c\
 			push_swap.c\
+			push_swap_count.c\
 			push_swap_parsing.c\
 			push_swap_utils.c\
+			push_swap_utils_2.c\
 			push_swap_op_1.c\
 			push_swap_op_2.c\
 			push_swap_sort_1.c\

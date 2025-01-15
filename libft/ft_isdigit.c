@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:31:58 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:34:28 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:18:02 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* checks for a digit (0 through 9). */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

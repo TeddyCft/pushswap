@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:41:20 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:50:39 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:17:21 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Alloue (avec malloc(3)) et retourne une nouvelle
 chaîne, résultat de la concaténation de s1 et s2. */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 18:23:11 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 22:08:09 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	get_cheap(t_data *data, t_stack *st_a)
 	cheap = st_a;
 	while (st_a)
 	{
-		// ft_printf("sta = %d count = %d\n", st_a->content[0], st_a->count);
-		// ft_printf("cheap = %d count = %d is_rev %d\n", cheap->content[0], cheap->count, cheap->is_rev);
 		if (absol(cheap->count) > absol(st_a->count))
 			cheap = st_a;
 		st_a = (st_a)->next;

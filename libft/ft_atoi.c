@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:35:45 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 18:23:36 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:18:54 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* The atoi() function converts the initial portion of the string pointed to by
 nptr to int. */
 
-#include"libft.h"
+#include "libft.h"
 
 static int	is_neg(const char *str)
 {
@@ -33,7 +33,7 @@ static int	space_check(const char *nptr)
 
 	i = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-			i++;
+		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		i++;

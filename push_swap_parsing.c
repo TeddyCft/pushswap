@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_parsing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/14 12:43:25 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:12:54 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 		ft_clear_split(list);
 	return ;
 }
-//////// TESTING /////////
+/* //////// TESTING /////////
 //testing function, prints both stacks
 void	print_stacks(t_stack *st_a, t_stack *st_b)
 {
@@ -106,3 +106,13 @@ void	rev_print_stack(t_stack *st, char c)
 	}
 	ft_printf("---------------\n");
 }
+
+void	print_data(t_data *data)
+{
+	ft_printf("cheap = %d\n", data->cheap);
+	ft_printf("count = %d\n", data->count);
+	ft_printf("max = %p\n", data->max);
+	ft_printf("temp = %p\n", data->temp);
+}
+
+*/

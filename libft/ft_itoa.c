@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:55:26 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:38:05 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:18:05 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 de caractères représentant l’entier ’n’ reçu en
 argument. Les nombres négatifs doivent être gérés. */
 
-#include"libft.h"
+#include "libft.h"
 
 static int	itoa_len(long n)
 {

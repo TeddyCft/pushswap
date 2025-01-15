@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:13:07 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 14:27:30 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 22:15:00 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	push_b_to_a(t_stack **st_a, t_stack **st_b)
 	while (*st_b)
 	{
 		get_all_targets(*st_b, *st_a, 'b');
-		// print_stacks(*st_a, *st_b);
 		if ((*st_b)->count > 0)
 		{
 			while (*st_a != (*st_b)->target)

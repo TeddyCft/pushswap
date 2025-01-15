@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:19:05 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:44:01 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:19:15 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ dest. The memory areas may overlap: copying takes place as though the bytes in
 src are first copied into a temporary array that does not overlap src or dest,
 and the bytes are then copied from the temporary array to dest. */
 
-#include"libft.h"
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

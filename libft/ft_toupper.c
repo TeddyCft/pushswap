@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 19:20:46 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 11:00:41 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:16:31 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ c.  The toupper_l() function performs the same task, but uses the locale
 referred to by the locale handle locale.
 */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

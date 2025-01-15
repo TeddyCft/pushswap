@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:41:42 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:53:13 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:17:26 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Copy a string. Copy src to string dst of size siz. At most siz-1 characters
 will be copied. Always NULL terminates (unless siz == 0). */
 
-#include"libft.h"
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

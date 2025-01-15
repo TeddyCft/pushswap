@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:45:13 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:49:00 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:17:16 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 duplicate of the string s.  Memory for the new string is obtained with
 malloc(3), and can be freed with free(3). */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {

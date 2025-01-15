@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:32:53 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/09 17:19:37 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:14:48 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	is_list(char *str)
 			if (!is_int(str + i, ' '))
 				return (0);
 			while (str[i] && (ft_isdigit(str[i]) || ft_is_sign(str[i])))
-					i++;
+				i++;
 		}
 		if (str[i] && str[i] != ' ')
 			i++;
@@ -93,5 +93,3 @@ int	error_check(int argc, char **argv)
 	}
 	return (1);
 }
-
-//DEBUG CHECK DOUBLE ERROR + PUSH B2BRT

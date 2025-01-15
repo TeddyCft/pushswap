@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:35:20 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 19:13:02 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:17:54 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 bytes each and returns a pointer to the allocated memory.  The memory is set
 to zero. */
 
-#include"libft.h"
+#include "libft.h"
 
 /* void	ft_bzero(void *s, size_t n); */
 

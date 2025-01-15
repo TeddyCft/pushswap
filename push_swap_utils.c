@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:27:38 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 17:03:20 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 22:14:30 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,6 @@ void	reset_stack(t_stack *st)
 		st->is_rev = 0;
 		st = st->next;
 	}
-}
-
-int	ft_max(int a, int b)
-{
-	if (a < b)
-		return (b);
-	return (a);
-}
-
-int	ft_min(int a, int b)
-{
-	if (a > b)
-		return (b);
-	return (a);
-}
-
-int	absol(int val)
-{
-	if (val < 0)
-		val = -val;
-	return (val);
 }
 
 int	is_sort(t_stack *st)
@@ -79,12 +58,4 @@ void	ft_clear_split(char **split)
 		free(split[i]);
 		i++;
 	}
-}
-
-void	print_data(t_data *data)
-{
-	ft_printf("cheap = %d\n", data->cheap);
-	ft_printf("count = %d\n", data->count);
-	ft_printf("max = %p\n", data->max);
-	ft_printf("temp = %p\n", data->temp);
 }

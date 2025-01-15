@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:58:23 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:33:39 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:17:58 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ characters for which isalpha() is true—letters which are  neither  uppercase
 nor lowercase.
 */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

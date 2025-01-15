@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:36:22 by tcoeffet          #+#    #+#             */
-/*   Updated: 2024/11/18 10:43:11 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:19:17 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*  The memcmp() function compares the first n bytes (each interpreted as
 unsigned char) of the memory areas s1 and s2. */
 
-#include"libft.h"
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
