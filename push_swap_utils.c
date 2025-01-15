@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:27:38 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/13 18:36:01 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:03:20 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	reset_stack(t_stack *st)
 		st->is_rev = 0;
 		st = st->next;
 	}
+}
+
+int	ft_max(int a, int b)
+{
+	if (a < b)
+		return (b);
+	return (a);
 }
 
 int	ft_min(int a, int b)

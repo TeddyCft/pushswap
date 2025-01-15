@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_targets.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:38:09 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/14 18:53:57 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:33:49 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,42 @@ void	reset_targets(t_stack *st)
 		st->target = 0;
 		st = st->next;
 	}
+} 
+
+int	get_k(t_stack *st, t_stack *target)
+{
+	t_stack	*start;
+	int		k;
+
+	start = st;
+	k = 1;
+	st = ft_lstlast_ps(st);
+	while (st != target)
+	{
+		k++;
+		st = st->prev;
+	}
+	st = start;
+	return (k);
 }
 
-/*count the smallest number of actions needed to reach the target from the node
-*st in stack st. returns a negative value if the actions should be reverted*/
-int	get_count(t_stack *st, t_stack *target, int i)
+int	get_j(t_stack *st, t_stack *target)
+{
+	t_stack	*start;
+	int		j;
+
+	start = st;
+	j = 0;
+	while (st != target)
+	{
+		j++;
+		st = st->next;
+	}
+	st = start;
+	return (j);
+}
+/////old version celle qui marche///////
+/* int	get_count(t_stack *st, t_stack *target, int i)
 {
 	t_stack	*end;
 	int		j;
@@ -47,6 +78,32 @@ int	get_count(t_stack *st, t_stack *target, int i)
 	if (j < absol(k))
 		return (j + i + 1);
 	return (k - i - 1);
+} */
+
+/*count the smallest number of actions needed to reach the target from the node
+*st in stack st. returns a negative value if the actions should be reverted*/
+int	get_count(t_stack *st, t_stack *target, int i)
+{
+	int		j;
+	int		k;
+
+	j = get_j(st, target);
+	k = get_k(st, target);
+	if (i > 0)
+	{
+		j = ft_max(j - i, 0);
+		k = k + i;
+	}
+	else if (i < 0)
+	{
+		k = ft_max((k - absol(i)), 0);
+		j = j + absol(i);
+	}
+	k = k + 1;
+	if (j < k)
+		return (j);
+	return (-k);
+	// ft_printf("%d target = %d k = %d j = %d\n",st->content[0], target->content[0], k, j);
 }
 
 /*checks the whole stack b for the most convenient node to target 
@@ -104,7 +161,7 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 {
 	int	i;
 	int	half;
-	int test;
+	int	test;
 
 	half = stack_size(st1) / 2;
 	i = 0;
@@ -112,15 +169,19 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 	{
 		test = st1->content[0];
 		if (c == 'a')
-				st1->target = get_target_a(st1, st2);
+			st1->target = get_target_a(st1, st2);
 		else
-				st1->target = get_target_b(st1, st2);
+			st1->target = get_target_b(st1, st2);
 		if (i < 0)
 			st1->is_rev = 1;
-		st1->count = get_count(st2, st1->target, absol(i));
+		st1->count = get_count(st2, st1->target, i);
 		st1 = st1->next;
 		i++;
 		if (i == half)
-			i = -1 - i;
+		{
+			i = -i;
+			if (half % 2 != 0)
+				i--;
+		}
 	}
 }

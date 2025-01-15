@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 11:37:10 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 18:23:11 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	get_cheap(t_data *data, t_stack *st_a)
 amount of operations */
 void	push_cheap(t_data *data, t_stack **st_a, t_stack **st_b)
 {
-	if (data->cheap->count > 0 && !data->cheap->is_rev)
+	if (data->cheap->count >= 0 && !data->cheap->is_rev)
 	{
 		while (*st_a != data->cheap && *st_b != data->cheap->target)
 			op_rr(st_a, st_b);
 	}
-	if (data->cheap->count < 0 && data->cheap->is_rev)
+	if (data->cheap->count <= 0 && data->cheap->is_rev)
 	{
 		while (*st_a != data->cheap && *st_b != data->cheap->target)
 			op_rrr(st_a, st_b);

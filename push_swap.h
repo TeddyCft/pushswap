@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 11:35:44 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/15 17:08:16 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int		is_sort(t_stack *st);
 int		is_max(t_stack *st);
 int		ft_min(int a, int b);
 void	reset_stack(t_stack *st);
+int		ft_max(int a, int b);
 
 //testing
 
