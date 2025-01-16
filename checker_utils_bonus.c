@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 12:50:08 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 13:27:00 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:41:58 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	do_rot(char *op, t_stack **st_a, t_stack **st_b)
 int	do_rev_rot(char *op, t_stack **st_a, t_stack **st_b)
 {
 	if (op[2] == 'a')
-		op_rot(st_a, 'a');
+		op_rev_rot(st_a, 'a');
 	else
-		op_rot(st_b, 'b');
+		op_rev_rot(st_b, 'b');
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:40:15 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 14:40:17 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:42:17 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,15 @@ int	main(int argc, char **argv)
 	t_stack	*st_b;
 	int		error;
 
-	if (argc == 1)
-		return (1);
 	error = 0;
 	st_a = 0;
 	st_b = 0;
 	if (!error_check(argc, argv))
 		return (ft_printf("Error\n"), 0);
 	pars_init(argc, argv, &st_a, &error);
+	if (checker(&st_a, &st_b, &error))
+		return (ft_lstclear_ps(&st_a, &free), ft_printf("OK\n"), 0);
+	if (error == 1)
+		return (ft_lstclear_ps(&st_a, &free), ft_printf("Error\n"), 0);
+	return (ft_lstclear_ps(&st_a, &free), ft_printf("KO\n"), 0);
+}
