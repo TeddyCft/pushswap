@@ -6,7 +6,7 @@
 #    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/16 17:26:32 by tcoeffet         ###   ########.fr        #
+#    Updated: 2025/01/16 18:21:20 by tcoeffet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ all :		$(NAME)
 test :		$(TEST)
 				./a.out $(ARG) > result.txt
 
-$(TEST) : 	$(OBJ)
+$(TEST) : 	$(OBJ) $(MAINOBJ)
 	$(CC) $(FLAGS) -I$(HEADERS) -g $(MAINOBJ) $(OBJ) $(LIBFT)
 
 $(LIBFT) :

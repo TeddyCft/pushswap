@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_lst_1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:40:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 00:30:43 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/16 18:20:34 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_stack	*ft_lstnew_ps(int *content)
 	new->target = new;
 	new->count = 0;
 	new->is_rev = 0;
+	new->is_mid = 0;
 	new->next = NULL;
 	return (new);
 }

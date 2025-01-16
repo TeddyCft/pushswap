@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 15:54:42 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:08:43 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stack
 {
 	int				*content;
 	int				is_rev;
+	int				is_mid;
 	int				count;
 	struct s_stack	*target;
 	struct s_stack	*prev;

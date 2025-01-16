@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:45:17 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 14:42:41 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:33:58 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,16 @@ void	last_roll(t_stack **st)
 
 void	fill_b(t_data *data, t_stack **st_a, t_stack **st_b)
 {
-	while (stack_size(*st_a) > 3)
+	int	size;
+
+	size = stack_size(*st_a);
+	while (size > 3)
 	{
 		get_all_targets(*st_a, *st_b, 'a');
 		get_cheap(data, *st_a);
 		push_cheap(data, st_a, st_b);
 		reset_stack(*st_a);
+		size--;
 	}
 }
 

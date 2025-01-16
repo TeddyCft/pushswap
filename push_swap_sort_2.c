@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 11:05:07 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:19:38 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	get_cheap(t_data *data, t_stack *st_a)
 	cheap = st_a;
 	while (st_a)
 	{
+		if (st_a->is_mid == 1)
+			st_a->count = 0;
 		if (absol(cheap->count) > absol(st_a->count))
 			cheap = st_a;
 		st_a = (st_a)->next;
