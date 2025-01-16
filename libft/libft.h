@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:08:41 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 22:18:29 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/16 13:21:02 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <limits.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {

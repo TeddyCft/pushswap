@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 17:08:16 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/16 13:27:39 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+
+# ifndef IS_CHECK
+#  define IS_CHECK 0
+# endif
 
 typedef struct s_stack
 {
@@ -65,11 +69,17 @@ void	ft_lstiter_ps(t_stack *lst, void (*f)(void *));
 t_stack	*ft_lstmap_ps(t_stack *lst, void *(*f)(void *), void(*del)(void *));
 t_stack	*ft_lstlast_ps(t_stack *lst);
 
+//count
+
+int	get_k(t_stack *st, t_stack *target);
+int	get_j(t_stack *st, t_stack *target);
+int	get_count(t_stack *st, t_stack *target, int i);
+
 //op_1
 
 int		op_swap(t_stack **st, char c);
-int		op_ss(t_stack *st1, t_stack *st2);
-int		op_push(t_stack **st1, t_stack **st2, char c);
+int		op_ss(t_stack **st1, t_stack **st2);
+int		op_push(t_stack **from, t_stack **to, char c);
 
 //op_2
 

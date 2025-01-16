@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_sort_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 22:08:09 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/16 11:05:07 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@ int	small_sort(t_stack **st)
 	if (stack_size(*st) > 3)
 		return (0);
 	if (stack_size(*st) == 3)
+	{
 		sort_three(st);
+		if (!is_sort(*st) && is_max(*st))
+			op_rot(st, 'a');
+		else if (!is_sort(*st))
+			op_rev_rot(st, 'a');
+	}
 	else
 	{
 		if ((*st)->content > (*st)->next->content)

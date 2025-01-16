@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_op_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:15:57 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 14:03:46 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/16 13:27:50 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	op_swap(t_stack **st, char c)
 	temp = (*st)->next->content;
 	(*st)->next->content = (*st)->content;
 	(*st)->content = temp;
-	if (c != 'x')
+	if (c != 'x' && IS_CHECK == 0)
 		ft_printf("s%c\n", c);
 	return (1);
 }
@@ -45,11 +45,12 @@ int	op_swap(t_stack **st, char c)
 } */
 
 /* swaps both stacks */
-int	op_ss(t_stack *st_a, t_stack *st_b)
+int	op_ss(t_stack **st_a, t_stack **st_b)
 {
-	if (op_swap(&st_a, 'x') && op_swap(&st_b, 'x'))
+	if (op_swap(st_a, 'x') && op_swap(st_b, 'x'))
 	{
-		ft_printf("ss\n");
+		if (IS_CHECK == 0)
+			ft_printf("ss\n");
 		return (1);
 	}
 	return (0);
@@ -70,6 +71,7 @@ int	op_push(t_stack **from, t_stack **to, char c)
 	*from = tmp;
 	if (*from)
 		(*from)->prev = NULL;
-	ft_printf("p%c\n", c);
+	if (IS_CHECK == 0)
+		ft_printf("p%c\n", c);
 	return (1);
 }

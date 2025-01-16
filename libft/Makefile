@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teddy <teddy@student.42.fr>                +#+  +:+       +#+         #
+#    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/15 00:08:39 by teddy            ###   ########.fr        #
+#    Updated: 2025/01/16 13:17:55 by tcoeffet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SOURCES =	ft_atoi.c\
 			ft_printf/for_arg_2.c\
 			ft_printf/ft_printf.c\
 			ft_printf/utils.c\
+			get_next_line.c\
+			get_next_line_utils.c\
 			
 BONUS =		ft_lstnew_bonus.c\
 			ft_lstadd_front_bonus.c\
@@ -62,14 +64,14 @@ BONUS =		ft_lstnew_bonus.c\
 			ft_lstclear_bonus.c\
 			ft_lstiter_bonus.c\
 			ft_lstmap_bonus.c\
-			
+
 OBJ = 		$(SOURCES:.c=.o)
 
 OBJBONUS =	$(BONUS:.c=.o)
 
 HEADERS =	libft.h
 
-FLAGS = -Wall -Werror -Wextra -Wno-unused-but-set-variable
+FLAGS = -Wall -Werror -Wextra
 
 CC = cc
 
