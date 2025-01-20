@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:41:42 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 22:17:26 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/20 13:45:08 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ will be copied. Always NULL terminates (unless siz == 0). */
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t		i;
-	long int	j;	
 
 	i = 0;
-	j = 0;
 	if (size == 0)
 		return (ft_strlen((char *)src));
 	while (i < size - 1 && src[i])

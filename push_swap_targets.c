@@ -6,7 +6,7 @@
 /*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:38:09 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 22:10:59 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/20 13:49:02 by teddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 	int	half;
 	int	test;
 
-	half = stack_size(st1) / 2;
+	half = stack_size(st1) / 2 + stack_size(st1) % 2;
 	i = 0;
 	while (st1)
 	{
@@ -96,8 +96,9 @@ void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 		if (i == half)
 		{
 			i = -i;
-			if (half % 2 == 0)
+			if (half % 2 == 1)
 				i--;
 		}
 	}
+	(void) test;
 }
