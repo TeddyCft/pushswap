@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 17:26:02 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:27:09 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,27 @@ int	init_struct(int argc, char **list, t_stack **st_a)
 	return (1);
 }
 
+int	is_double(char **list)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (list[i + 1])
+	{
+		j = 1;
+		while (list[i + j])
+		{
+			if (!ft_strncmp(list[i + j], list[i], \
+				ft_max(ft_strlen(list[i]), ft_strlen(list[i + j]))))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 //takes every argument and puts it into a double array, if argc == 2, uses split
 void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 {
@@ -55,7 +76,7 @@ void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 	}
 	else
 		list = &argv[1];
-	if (!init_struct(argc, list, st_a))
+	if (!init_struct(argc, list, st_a) || is_double(list))
 		return ;
 	*error = 0;
 	if (argc == 2)
