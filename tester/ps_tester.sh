@@ -19,12 +19,12 @@ seq 0 $size | shuf | tr '\n' ' ' | sed 's/ $//'
 tester()
 {
 local input_list=$1
-local result_file=$2
+local result_file=$3
 
 #calls push_swap and count output lines
-./push_swap $input_list | tee /dev/tty | ./checker $input_list > output.txt 
+output=$(./push_swap $input_list | tee /dev/tty | ./checker $input_list)
 
-num_lines=$(echo ./output.txt | wc -l)
+num_lines=$(echo "$output" | wc -l)
 
 #updates the max number of lines get
 if [ $num_lines -gt $MAX_LINES ]; then
@@ -45,7 +45,7 @@ for ((i = 1; i <= $NUM_TESTS; i++)); do
 	
 	result_file="invalid_test_$i.txt"
 	
-	tester "$random_list" $result_file
+	tester "$random_list" $LS_SIZE $result_file
 done
 
 if [ "$GLOBAL_RESULT" == "OK" ]; then

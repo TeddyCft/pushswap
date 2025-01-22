@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:40:15 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 17:06:09 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:31:52 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	do_op(char *op, t_stack **st_a, t_stack **st_b)
 		return (op_ss(st_a, st_b));
 	if (!ft_strncmp("ra", op, 2) || !ft_strncmp("rb", op, 2))
 		return (do_rot(op, st_a, st_b));
+	if (ft_strlen(op) == 3 && !ft_strncmp("rr", op, 2))
+		return (op_rr(st_a, st_b));
 	if (!ft_strncmp("rra", op, 3) || !ft_strncmp("rrb", op, 3))
 		return (do_rev_rot(op, st_a, st_b));
-	if (ft_strlen(op) == 3 && !ft_strncmp("rrr", op, 3))
+	if (ft_strlen(op) == 4 && !ft_strncmp("rrr", op, 3))
 		return (op_rrr(st_a, st_b));
-	if (ft_strlen(op) == 2 && !ft_strncmp("rr", op, 3))
-		return (op_rr(st_a, st_b));
 	return (0);
 }
 
