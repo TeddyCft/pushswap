@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:27:38 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 22:14:30 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/22 15:53:23 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	reset_stack(t_stack *st)
 	while (st)
 	{
 		st->is_rev = 0;
+		st->tar_is_rev = 0;
 		st = st->next;
 	}
 }

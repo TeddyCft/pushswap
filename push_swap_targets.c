@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_targets.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:38:09 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/20 13:49:02 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/22 16:03:53 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,29 +76,18 @@ t_stack	*get_target_b(t_stack *st_b, t_stack *st_a)
 void	get_all_targets(t_stack *st1, t_stack *st2, char c)
 {
 	int	i;
-	int	half;
-	int	test;
+	int	size;
 
-	half = stack_size(st1) / 2 + stack_size(st1) % 2;
 	i = 0;
+	size = stack_size(st1);
 	while (st1)
 	{
-		test = st1->content[0];
 		if (c == 'a')
 			st1->target = get_target_a(st1, st2);
 		else
 			st1->target = get_target_b(st1, st2);
-		if (i <= 0)
-			st1->is_rev = 1;
-		st1->count = get_count(st2, st1->target, i);
+		st1->count = get_count(st1, st2, i, size - i);
 		st1 = st1->next;
 		i++;
-		if (i == half)
-		{
-			i = -i;
-			if (half % 2 == 1)
-				i--;
-		}
 	}
-	(void) test;
 }

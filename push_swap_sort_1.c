@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_sort_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:13:07 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/15 22:15:00 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/22 15:55:54 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	push_b_to_a(t_stack **st_a, t_stack **st_b)
 	while (*st_b)
 	{
 		get_all_targets(*st_b, *st_a, 'b');
-		if ((*st_b)->count > 0)
+		if (!(*st_b)->tar_is_rev)
 		{
 			while (*st_a != (*st_b)->target)
 			{

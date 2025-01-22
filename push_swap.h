@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 18:08:43 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:15:31 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 {
 	int				*content;
 	int				is_rev;
-	int				is_mid;
+	int				tar_is_rev;
 	int				count;
 	struct s_stack	*target;
 	struct s_stack	*prev;
@@ -74,7 +74,7 @@ t_stack	*ft_lstlast_ps(t_stack *lst);
 
 int	get_k(t_stack *st, t_stack *target);
 int	get_j(t_stack *st, t_stack *target);
-int	get_count(t_stack *st, t_stack *target, int i);
+int	get_count(t_stack *st1, t_stack *st2, int i, int rev_i);
 
 //op_1
 

@@ -3,70 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teddy <teddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:09:59 by teddy             #+#    #+#             */
-/*   Updated: 2025/01/20 13:42:36 by teddy            ###   ########.fr       */
+/*   Updated: 2025/01/22 16:21:21 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_k(t_stack *st, t_stack *target)
+int	get_bwd(t_stack *st, t_stack *target)
 {
 	t_stack	*start;
-	int		k;
+	int		bwd;
 
 	start = st;
-	k = 1;
+	bwd = 1;
 	st = ft_lstlast_ps(st);
 	while (st != target)
 	{
-		k++;
+		bwd++;
 		st = st->prev;
 	}
 	st = start;
-	return (k);
+	return (bwd);
 }
 
-int	get_j(t_stack *st, t_stack *target)
+int	get_fwd(t_stack *st, t_stack *target)
 {
 	t_stack	*start;
-	int		j;
+	int		fwd;
 
 	start = st;
-	j = 0;
+	fwd = 0;
 	while (st != target)
 	{
-		j++;
+		fwd++;
 		st = st->next;
 	}
 	st = start;
-	return (j);
+	return (fwd);
 }
 
 /*count the smallest number of actions needed to reach the target from the node
 *st in stack st. returns a negative value if the actions should be reverted*/
-int	get_count(t_stack *st, t_stack *target, int i)
+int	get_count(t_stack *st1, t_stack *st2, int i, int rev_i)
 {
-	int		j;
-	int		k;
+	int	fwd;
+	int	bwd;
+	int	count;
 
-	j = get_j(st, target);
-	k = get_k(st, target);
-	if (i > 0)
+	fwd = get_fwd(st2, st1->target);
+	bwd = get_bwd(st2, st1->target);
+	count = ft_max(fwd - i, 0) + i;
+	// ft_printf("#######\n0 count = %d\n", count);
+	if (count > fwd + rev_i)
 	{
-		j = ft_max(j - i, 0);
-		k = k + i;
+		st1->is_rev = 1;
+		count = fwd + rev_i;
+		// ft_printf("1 count = %d\n", count);
 	}
-	else if (i < 0)
+	if (count > ft_max(bwd - rev_i, 0) + rev_i)
 	{
-		k = ft_max((k - absol(i)), 0);
-		j = j + absol(i);
+		st1->is_rev = 1;
+		st1->tar_is_rev = 1;
+		count = ft_max(bwd - rev_i, 0) + rev_i;
+		// ft_printf("2 count = %d\n", count);
 	}
-	i = absol(i);
-	k = -k;
-	if (j < (absol(k)))
-		return (j + i + 1);
-	return (k - i - 1);
+	if (count > bwd + i)
+	{
+		st1->is_rev = 0;
+		st1->tar_is_rev = 1;
+		count = bwd + i;
+		// ft_printf("3 count = %d\n", count);
+	}
+	// ft_printf("########\n");
+	return (count);
 }
