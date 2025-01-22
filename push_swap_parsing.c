@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 13:13:55 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:02:51 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 		ft_clear_split(list);
 	return ;
 }
+/* 
 //////// TESTING /////////
 //testing function, prints both stacks
 void	print_stacks(t_stack *st_a, t_stack *st_b)
@@ -114,4 +115,4 @@ void	print_data(t_data *data)
 	ft_printf("max = %p\n", data->max);
 	ft_printf("temp = %p\n", data->temp);
 }
-
+ */

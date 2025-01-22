@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 14:15:31 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:01:59 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ t_stack	*ft_lstlast_ps(t_stack *lst);
 
 //count
 
-int	get_k(t_stack *st, t_stack *target);
-int	get_j(t_stack *st, t_stack *target);
-int	get_count(t_stack *st1, t_stack *st2, int i, int rev_i);
+int		get_bwd(t_stack *st, t_stack *target);
+int		get_fwd(t_stack *st, t_stack *target);
+int		get_count(t_stack *st1, t_stack *st2, int i, int rev_i);
 
 //op_1
 

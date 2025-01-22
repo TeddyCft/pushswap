@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:09:59 by teddy             #+#    #+#             */
-/*   Updated: 2025/01/22 16:21:21 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:00:39 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,22 @@ int	get_count(t_stack *st1, t_stack *st2, int i, int rev_i)
 	fwd = get_fwd(st2, st1->target);
 	bwd = get_bwd(st2, st1->target);
 	count = ft_max(fwd - i, 0) + i;
-	// ft_printf("#######\n0 count = %d\n", count);
 	if (count > fwd + rev_i)
 	{
 		st1->is_rev = 1;
 		count = fwd + rev_i;
-		// ft_printf("1 count = %d\n", count);
 	}
 	if (count > ft_max(bwd - rev_i, 0) + rev_i)
 	{
 		st1->is_rev = 1;
 		st1->tar_is_rev = 1;
 		count = ft_max(bwd - rev_i, 0) + rev_i;
-		// ft_printf("2 count = %d\n", count);
 	}
 	if (count > bwd + i)
 	{
 		st1->is_rev = 0;
 		st1->tar_is_rev = 1;
 		count = bwd + i;
-		// ft_printf("3 count = %d\n", count);
 	}
-	// ft_printf("########\n");
 	return (count);
 }

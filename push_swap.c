@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:45:17 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 15:53:23 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:01:15 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	fill_b(t_data *data, t_stack **st_a, t_stack **st_b)
 	{
 		get_all_targets(*st_a, *st_b, 'a');
 		get_cheap(data, *st_a);
-		//print_stacks(*st_a, *st_b);
 		push_cheap(data, st_a, st_b);
 		reset_stack(*st_a);
 		size--;
@@ -77,23 +76,6 @@ void	sort_stacks(t_stack **st_a, t_stack **st_b)
 	last_roll(st_a);
 	free(data);
 }
-
-/* void	sort_stacks_test(t_stack **st_a, t_stack **st_b)
-{
-	op_push(st_a, st_b, 'b');
-	print_stacks(*st_a, *st_b);
-	op_swap(st_a, 'a');
-	print_stacks(*st_a, *st_b);
-	op_push(st_a, st_b, 'b');
-	print_stacks(*st_a, *st_b);
-	op_ss(*st_a, *st_b);
-	print_stacks(*st_a, *st_b);
-	op_rot(st_a, 'a');
-	print_stacks(*st_a, *st_b);
-	op_rev_rot(st_a, 'a');
-	print_stacks(*st_a, *st_b);
-	return ;
-} */
 
 int	main(int argc, char **argv)
 {
