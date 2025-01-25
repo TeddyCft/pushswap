@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:30 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 18:27:09 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:15:38 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ void	pars_init(int argc, char **argv, t_stack **st_a, int *error)
 		return ;
 	*error = 0;
 	if (argc == 2)
+	{
 		ft_clear_split(list);
+		free(list);
+	}
 	return ;
 }
 /* 

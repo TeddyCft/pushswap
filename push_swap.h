@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:54:12 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 17:01:59 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:11:45 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_stack	*get_min(t_stack *st);
 
 void	push_cheap(t_data *data, t_stack **st_a, t_stack **st_b);
 void	get_cheap(t_data *data, t_stack *st_a);
-int		small_sort(t_stack **st);
+int		small_sort(t_data *data, t_stack **st);
 void	roll_a(t_data *data, t_stack **st_a);
 void	roll_b(t_data *data, t_stack **st_b);
 

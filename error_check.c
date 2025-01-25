@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:32:53 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 17:06:33 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:02:00 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ int	error_check(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	if (argc <= 1 || !argv[1])
-		return (0);
 	if (argc == 2)
 	{
 		if (ft_is_empty(argv[1]) || !ft_is_set(argv[1]))

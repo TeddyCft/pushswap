@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:15:57 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 13:27:50 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 15:05:10 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ int	op_swap(t_stack **st, char c)
 	(*st)->next->content = (*st)->content;
 	(*st)->content = temp;
 	if (c != 'x' && IS_CHECK == 0)
-		ft_printf("s%c\n", c);
+	{
+		write(1, "s", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 	return (1);
 }
 
@@ -50,7 +54,7 @@ int	op_ss(t_stack **st_a, t_stack **st_b)
 	if (op_swap(st_a, 'x') && op_swap(st_b, 'x'))
 	{
 		if (IS_CHECK == 0)
-			ft_printf("ss\n");
+			write(1, "ss\n", 3);
 		return (1);
 	}
 	return (0);
@@ -72,6 +76,10 @@ int	op_push(t_stack **from, t_stack **to, char c)
 	if (*from)
 		(*from)->prev = NULL;
 	if (IS_CHECK == 0)
-		ft_printf("p%c\n", c);
+	{
+		write(1, "p", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 	return (1);
 }

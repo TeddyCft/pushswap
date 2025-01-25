@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:32:27 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/16 11:47:05 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 15:05:36 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int	op_rot(t_stack **st, char c)
 	ft_lstlast_ps(*st)->next = tmp;
 	tmp->next = NULL;
 	if (c != 'x' && IS_CHECK == 0)
-		ft_printf("r%c\n", c);
+	{
+		write(1, "r", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 	return (1);
 }
 
@@ -44,7 +48,7 @@ int	op_rr(t_stack **st1, t_stack **st2)
 	if (op_rot(st1, 'x') && op_rot(st2, 'x'))
 	{
 		if (IS_CHECK == 0)
-			ft_printf("rr\n");
+			write(1, "rr\n", 3);
 		return (1);
 	}
 	return (0);
@@ -65,7 +69,11 @@ int	op_rev_rot(t_stack **st, char c)
 	tmp->prev = *st;
 	(*st)->prev = NULL;
 	if (c != 'x' && IS_CHECK == 0)
-		ft_printf("rr%c\n", c);
+	{
+		write(1, "rr", 2);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 	return (1);
 }
 
@@ -75,6 +83,6 @@ int	op_rrr(t_stack **st1, t_stack **st2)
 	op_rev_rot(st1, 'x');
 	op_rev_rot(st2, 'x');
 	if (IS_CHECK == 0)
-		ft_printf("rrr\n");
+		write(1, "rrr\n", 4);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:40:15 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 17:31:52 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 19:01:31 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	checker(t_stack **st_a, t_stack **st_b, int *error)
 	op = get_next_line(0);
 	while (op)
 	{
+		if (op[0] == '\n')
+			break ;
 		if (!do_op(op, st_a, st_b))
 		{
 			*error = 1;
@@ -62,11 +64,11 @@ int	main(int argc, char **argv)
 	st_a = 0;
 	st_b = 0;
 	if (!error_check(argc, argv))
-		return (ft_printf("Error\n"), 0);
+		return (write(2, "Error\n", 6), 0);
 	pars_init(argc, argv, &st_a, &error);
 	if (checker(&st_a, &st_b, &error))
-		return (ft_lstclear_ps(&st_a, &free), ft_printf("OK\n"), 0);
+		return (ft_lstclear_ps(&st_a, &free), write(1, "OK\n", 3), 0);
 	if (error == 1)
-		return (ft_lstclear_ps(&st_a, &free), ft_printf("Error\n"), 0);
-	return (ft_lstclear_ps(&st_a, &free), ft_printf("KO\n"), 0);
+		return (ft_lstclear_ps(&st_a, &free), write(2, "Error\n", 6), 0);
+	return (ft_lstclear_ps(&st_a, &free), write(1, "KO\n", 3), 0);
 }

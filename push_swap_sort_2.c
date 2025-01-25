@@ -6,14 +6,14 @@
 /*   By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:53:43 by tcoeffet          #+#    #+#             */
-/*   Updated: 2025/01/22 15:46:31 by tcoeffet         ###   ########.fr       */
+/*   Updated: 2025/01/25 19:28:26 by tcoeffet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //sorts the stack if the number of node is 3 or less
-int	small_sort(t_stack **st)
+int	small_sort(t_data *data, t_stack **st)
 {
 	if (stack_size(*st) > 3)
 		return (0);
@@ -25,12 +25,14 @@ int	small_sort(t_stack **st)
 		else if (!is_sort(*st))
 			op_rev_rot(st, 'a');
 	}
+	else if (stack_size(*st) == 1)
+		return (free(data), 1);
 	else
 	{
-		if ((*st)->content > (*st)->next->content)
+		if ((*st)->content[0] > (*st)->next->content[0])
 			op_swap(st, 'a');
 	}
-	return (1);
+	return (free(data), 1);
 }
 
 /* count how many operation is needed to push any element from a to b and return
