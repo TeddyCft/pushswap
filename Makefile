@@ -6,7 +6,7 @@
 #    By: tcoeffet <tcoeffet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:29:48 by tcoeffet          #+#    #+#              #
-#    Updated: 2025/01/22 13:15:47 by tcoeffet         ###   ########.fr        #
+#    Updated: 2025/01/25 19:38:36 by tcoeffet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,17 +86,17 @@ $(OBJBONUS) :
 	$(CC) $(FLAGS) -c -g $< -o $@
 
 clean : 
-	rm -f $(MAINOBJ)
+	rm -f $(NAME)
 fclean : clean
-	rm -f $(NAME) $(LIBFT) $(OBJ)
+	rm -f $(NAME) $(LIBFT) $(OBJ) $(MAINOBJ)
 	make -C ./libft fclean
 re : fclean all
 
 cleanbonus : 
-	rm -f $(OBJBONUS) $(MAINOBJ) $(MAINOBJBONUS)
+	rm -f $(OBJBONUS) $(NAME) $(BONUS)
 
 fcleanbonus :	cleanbonus
-	rm -f $(NAME) $(BONUS) $(LIBFT) $(OBJ) $(OBJBONUS)
+	rm -f $(LIBFT) $(OBJ) $(OBJBONUS) $(MAINOBJ) $(MAINOBJBONUS)
 	make -C ./libft fclean
 
 rebonus : fcleanbonus all
