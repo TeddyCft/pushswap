@@ -69,7 +69,7 @@ OBJ = 		$(SOURCES:.c=.o)
 
 OBJBONUS =	$(BONUS:.c=.o)
 
-HEADERS =	libft.h
+HEADERS =	.
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -81,12 +81,12 @@ $(NAME) : $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
 %.o : %.c
-	$(CC) $(FLAGS) -c -I$(HEADERS) -g $< -o $@
+	$(CC) $(FLAGS) -c -I. -g $< -o $@
 
 bonus : $(OBJBONUS)
 	ar -rcs $(NAME) $(OBJBONUS)
 %.o : %.c
-	$(CC) $(FLAGS) -c -I$(HEADERS) -g $< -o $@
+	$(CC) $(FLAGS) -c -I. -g $< -o $@
 
 clean :
 		rm -f $(OBJ) $(OBJBONUS)
